@@ -15,7 +15,7 @@ class blogController extends Controller
         ]);
     }
 
-    //Show single listing
+    //Show single blog
     public function show(blog $blog)
     {
         return view('blog.show', [

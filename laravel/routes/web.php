@@ -4,7 +4,7 @@ use App\Models\blog;
 use App\Models\blogs;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\blogsController;
+use App\Http\Controllers\blogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +23,8 @@ Route::get('/', function () {
     ]);
 });
 //show single blog
-Route::get('/show', [blogController::class, 'show']);
+Route::get('/blog/{blog}', [blogController::class, 'show']);
+
 
 
 Route::get('/admin', function () {
@@ -40,5 +41,8 @@ Route::get('/login', [UserController::class, 'login']);
 
 //create new user
 Route::post('/users', [UserController::class, 'store']);
+
+//login
+Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
 
